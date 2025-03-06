@@ -42,7 +42,6 @@ public class CameraManager : MonoBehaviour
         if (currentTarget == mazeBall)
         {
             currentTarget = bigBall;
-            mazeBall.gameObject.SetActive(false);
             MazeCameraRig.transform.position = new Vector3(0,4.5f,0) + offset;
             
             
@@ -51,7 +50,6 @@ public class CameraManager : MonoBehaviour
         {
             
             currentTarget = mazeBall;
-            mazeBall.gameObject.SetActive(true);
             MazeCameraRig.transform.position = currentTarget.position + offset;
         }
     }
