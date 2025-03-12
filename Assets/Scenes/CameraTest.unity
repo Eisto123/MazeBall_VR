@@ -4338,6 +4338,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRCameraRig Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1316404768978642667, guid: 95c0e406a4731f34cacad9f14e30f7c8,
+        type: 3}
+      propertyPath: _enableDynamicResolution
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316404768978642667, guid: 95c0e406a4731f34cacad9f14e30f7c8,
+        type: 3}
+      propertyPath: controllerDrivenHandPosesType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316404768978642667, guid: 95c0e406a4731f34cacad9f14e30f7c8,
+        type: 3}
+      propertyPath: requestScenePermissionOnStartup
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
