@@ -5,8 +5,16 @@ using UnityEngine;
 using Oculus.Interaction.HandGrab;
 using Meta.WitAi;
 
+public enum level{
+    Level1,
+    Level2,
+    Level3,
+    Level4
+}
+
 public class GameManager : MonoBehaviour
 {
+    private level currentLevel = level.Level1;
     public static GameManager instance;
     public GameObject BigBall;
     private GameObject TinyBall;
@@ -15,6 +23,19 @@ public class GameManager : MonoBehaviour
     public HandGrabInteractor leftInteractor;
     public HandGrabInteractor rightInteractor;
     public GameObject interactionControl;
+
+    public GameManager Instance{
+        get{
+            if(instance == null){
+                instance = this;
+            }
+            return instance;
+        }
+    }
+
+    public List<GameObject> BigBallStartPos;
+    public List<GameObject> BigBallTransitionPos;
+    public List<GameObject> TinyBallStartPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +59,10 @@ public class GameManager : MonoBehaviour
         rightInteractor.ForceRelease();
         interactionControl.SetActive(false);
         mazeBall.SetActive(false);
+        BigBall.SetActive(true);
+        SetBigBallPositionBaseOnCurrentLevel();
 
         yield return new WaitForSeconds(1);
-        BigBall.SetActive(true);
         TinyBall.SetActive(false);
         BigBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
@@ -53,22 +75,81 @@ public class GameManager : MonoBehaviour
     public void SwitchToTinyBall(){
         StartCoroutine(SwitchToTinyBallProcess());
     }
+
+
     private IEnumerator SwitchToTinyBallProcess(){
+        currentLevel++;
         BigBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
         BigBall.GetComponent<Rigidbody>().isKinematic = true;
         leftInteractor.ForceRelease();
         rightInteractor.ForceRelease();
         interactionControl.SetActive(false);
         mazeBall.SetActive(true);
-        
+        TinyBall.SetActive(true);
+        SetTinyBallPositionBaseOnCurrentLevel();
 
         yield return new WaitForSeconds(1);
-        TinyBall.SetActive(true);
+        
         BigBall.SetActive(false);
+        RoomCubePrefab.transform.rotation = Quaternion.Euler(0,0,0);
         RoomCubePrefab.SetActive(false);
         interactionControl.SetActive(true);
         TinyBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
         
+    }
+
+    private void SetBigBallPositionBaseOnCurrentLevel(){
+        switch(currentLevel){
+            case level.Level1:
+                break;
+            case level.Level2:
+                BigBall.transform.position = BigBallStartPos[0].transform.position;
+                break;
+            case level.Level3:
+                BigBall.transform.position = BigBallStartPos[1].transform.position;
+                break;
+            case level.Level4:
+                Debug.Log("EndAnimation");
+                break;
+        }
+    }
+
+    private void SetTinyBallPositionBaseOnCurrentLevel(){
+        switch(currentLevel){
+            case level.Level1:
+                break;
+            case level.Level2:
+                TinyBall.transform.position = TinyBallStartPos[0].transform.position;
+                break;
+            case level.Level3:
+                TinyBall.transform.position = TinyBallStartPos[1].transform.position;
+                break;
+            case level.Level4:
+                TinyBall.transform.position = TinyBallStartPos[2].transform.position;
+                break;
+        }
+    }
+
+    public void OnBigBallTransition(int index){
+        StartCoroutine(BigBallTransitionProcess(index));
+    }
+
+    private IEnumerator BigBallTransitionProcess(int index){
+        BigBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        BigBall.GetComponent<Rigidbody>().isKinematic = true;
+        leftInteractor.ForceRelease();
+        rightInteractor.ForceRelease();
+        RoomCubePrefab.transform.rotation = Quaternion.Euler(0,0,0);
+        interactionControl.SetActive(false);
+        yield return new WaitForSeconds(1);
+
+        SetBigBallTransitionPosition(index);
+        BigBall.GetComponent<Rigidbody>().isKinematic = false;
+        interactionControl.SetActive(true);
+    }
+
+    public void SetBigBallTransitionPosition(int index){
+        BigBall.transform.position = BigBallTransitionPos[index].transform.position;
     }
 }
