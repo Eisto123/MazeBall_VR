@@ -6,19 +6,31 @@ TagManager:
   tags:
   - Ball
   - RoomCube
+  - QDSUISharedThemeColor
+  - QDSUITooltip
+  - QDSUISecondaryButton
+  - QDSUIToggleBorderlessButton
+  - QDSUIIcon
+  - QDSUITextSecondaryColor
+  - QDSUIAccentColor
+  - QDSUIBorderlessButton
+  - QDSUIToggleButton
+  - QDSUIToggleSwitch
+  - MazeBall
+  - TinyBall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - HiddenMesh
   - Water
   - UI
   - TinyBall
   - 
   - 
   - 
-  - 
-  - 
+  - Character
+  - MirroredCharacter
   - 
   - 
   - 

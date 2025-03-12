@@ -12,9 +12,9 @@ public class CheckPoint : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Ball"){
+        if(other.gameObject.tag == "Ball"|| other.gameObject.tag == "TinyBall"){
             CheckpointEvent.Invoke();
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
             
         }
     }
