@@ -62,19 +62,6 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    private IEnumerator LerpPosition (Vector3 targetPosition)
-    {
-        float time = 0;
-        Vector3 startPosition = MazeCameraRig.transform.position;
-
-        while (time < lerpSpeed)
-        {
-            MazeCameraRig.transform.position = Vector3.Lerp(startPosition, targetPosition, time);
-            time += Time.deltaTime * lerpSpeed;
-            yield return null;
-        }
-    }
-
     public void SetOffset(Vector3 newOffset)
     {
         offset = newOffset;
