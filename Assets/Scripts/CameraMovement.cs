@@ -37,6 +37,14 @@ public class CameraManager : MonoBehaviour
         MazeCameraRig.transform.position = currentTarget.position + offset;
     }
 
+    void Update()
+    {
+        if(mazeBall == null)
+        {
+            mazeBall = GameObject.FindGameObjectWithTag("MazeBall").transform;
+        }
+    }
+
     public void SwitchTarget()
     {
         if (currentTarget == mazeBall)
