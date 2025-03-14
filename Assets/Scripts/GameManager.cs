@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
         interactionControl.SetActive(false);
         StartCoroutine(LerpGlobalVolume(1, -0.8f, 0.5f));
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(LerpGlobalVolume(0.2f, 0, 0.5f));
+        StartCoroutine(LerpGlobalVolume(0.3f, 0, 0.5f));
         yield return new WaitForSeconds(0.5f);
 
         SetBigBallTransitionPosition(index);
