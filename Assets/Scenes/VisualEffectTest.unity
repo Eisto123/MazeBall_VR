@@ -15779,6 +15779,7 @@ MonoBehaviour:
   leftInteractor: {fileID: 2123735476}
   rightInteractor: {fileID: 672595851}
   interactionControl: {fileID: 1766759513}
+  globalVolume: {fileID: 0}
   BigBallStartPos:
   - {fileID: 1726349845}
   - {fileID: 92719927}
@@ -15789,6 +15790,7 @@ MonoBehaviour:
   - {fileID: 1063726228}
   - {fileID: 389676918}
   - {fileID: 1007384265}
+  MazeBallRotationForTinyBall: []
 --- !u!4 &1533536788
 Transform:
   m_ObjectHideFlags: 0
@@ -24573,7 +24575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2096427042
 MonoBehaviour:
   m_ObjectHideFlags: 0
