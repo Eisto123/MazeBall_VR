@@ -137,6 +137,7 @@ public class RoomRotation : MonoBehaviour
     public void DisableRotation()
     {
         enableRotation = false;
+        roomCube.transform.eulerAngles = new Vector3(0, 0, 0);
         roomClockWise.transform.eulerAngles = new Vector3(roomClockWise.transform.eulerAngles.x, roomClockWise.transform.eulerAngles.y, 0);
     }
 
