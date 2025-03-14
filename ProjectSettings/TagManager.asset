@@ -18,6 +18,7 @@ TagManager:
   - QDSUIToggleSwitch
   - MazeBall
   - TinyBall
+  - String
   layers:
   - Default
   - TransparentFX

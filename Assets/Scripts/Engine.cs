@@ -7,8 +7,7 @@ public class Engine : MonoBehaviour
 {
     
     public float rotationSpeed = 50f; // Speed of rotation
-    private bool isRotating = false;
-
+    public bool isRotating = false;
     void Update()
     {
         if (isRotating)

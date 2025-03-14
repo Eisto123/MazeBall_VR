@@ -93,7 +93,12 @@ public class RoomRotation : MonoBehaviour
         else if (direction == Direction.zminus){
             targetRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z-90);
         }
-        
+        if(needFlip){
+            needFlip = false;
+            roomClockWise.transform.eulerAngles = new Vector3(roomClockWise.transform.eulerAngles.x, roomClockWise.transform.eulerAngles.y, 0);
+            
+            targetRotation.eulerAngles = new Vector3(0, 90, 0);
+        }
         float elapsedTime = 0f;
 
         while (elapsedTime < rotationDuration)
@@ -104,12 +109,9 @@ public class RoomRotation : MonoBehaviour
         }
         
         transform.rotation = targetRotation; // Ensure final rotation is precise
-
+        roomCube.transform.eulerAngles = new Vector3(0, 0, 0);
         if(needFlip){
-            needFlip = false;
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y+180, transform.eulerAngles.z + 180);
-            roomClockWise.transform.eulerAngles = new Vector3(roomClockWise.transform.eulerAngles.x, roomClockWise.transform.eulerAngles.y, 0);
-            roomCube.transform.eulerAngles = new Vector3(roomCube.transform.eulerAngles.x, roomCube.transform.eulerAngles.y, 0);
+            
         }
 
         if(!isEnding)
