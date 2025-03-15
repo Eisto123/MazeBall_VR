@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class SequentialAppear : MonoBehaviour
 {
-    public GameObject[] objectsToAppear; // ĞèÒªÒÀ´ÎÏÔÊ¾µÄÎïÌåÊı×é
-    public float delayBetweenAppearance = 0.5f; // Ã¿¸öÎïÌå³öÏÖµÄÊ±¼ä¼ä¸ô
-    public float dissolveDuration = 1f; // ÈÜ½â³ÖĞøÊ±¼ä
-    public float timeBeforeDissolve = 2f; // ÎïÌåÍêÈ«³öÏÖºóÍ£ÁôµÄÊ±¼ä
+    public GameObject[] objectsToAppear; // ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float delayBetweenAppearance = 0.5f; // Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+    public float dissolveDuration = 1f; // ï¿½Ü½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public float timeBeforeDissolve = 2f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Öºï¿½Í£ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 
     private string dissolveProperty = "_Distance";
 
@@ -17,6 +17,9 @@ public class SequentialAppear : MonoBehaviour
             obj.SetActive(false);
         }
 
+    }
+
+    public void AppearFootprints(){
         StartCoroutine(ManageObjects());
     }
 
