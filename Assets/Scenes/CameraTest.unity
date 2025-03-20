@@ -11077,27 +11077,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1557562805573285552, guid: b5b3b2d56f5d18049a65ce7a0e3c6edc, type: 3}
---- !u!65 &873164915
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950387566}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.002592716, y: 0.002525452, z: 0.0022136364}
-  m_Center: {x: 0.000029908124, y: 0.000021549631, z: 0.0011112}
 --- !u!64 &873356191
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18250,27 +18229,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0021000009, y: 0.0031000013, z: 0.0015000002}
   m_Center: {x: -0.0000000055805733, y: 0.0000000036694725, z: 0.00075}
---- !u!65 &1857016542
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950387593}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.000988518, y: 0.0011564487, z: 0.0006730792}
-  m_Center: {x: 0.000009463693, y: 0.000020445423, z: 0.0003409213}
 --- !u!64 &1858014531
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22198,10 +22156,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1809267967}
-    - targetCorrespondingSourceObject: {fileID: -1573868359634553201, guid: c523902a0f0793e41aaa90e7c8f0ec18,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1857016542}
     - targetCorrespondingSourceObject: {fileID: -173431611900747528, guid: c523902a0f0793e41aaa90e7c8f0ec18,
         type: 3}
       insertIndex: -1
@@ -22306,10 +22260,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 553139358}
-    - targetCorrespondingSourceObject: {fileID: 5841211958666880749, guid: c523902a0f0793e41aaa90e7c8f0ec18,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 873164915}
     - targetCorrespondingSourceObject: {fileID: 8183934053028842470, guid: c523902a0f0793e41aaa90e7c8f0ec18,
         type: 3}
       insertIndex: -1
@@ -22482,12 +22432,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1950387549}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1950387566 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5841211958666880749, guid: c523902a0f0793e41aaa90e7c8f0ec18,
-    type: 3}
-  m_PrefabInstance: {fileID: 1950387549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950387567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5251499905237687242, guid: c523902a0f0793e41aaa90e7c8f0ec18,
@@ -22641,12 +22585,6 @@ GameObject:
 --- !u!1 &1950387592 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -173431611900747528, guid: c523902a0f0793e41aaa90e7c8f0ec18,
-    type: 3}
-  m_PrefabInstance: {fileID: 1950387549}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1950387593 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1573868359634553201, guid: c523902a0f0793e41aaa90e7c8f0ec18,
     type: 3}
   m_PrefabInstance: {fileID: 1950387549}
   m_PrefabAsset: {fileID: 0}
@@ -24638,6 +24576,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4177492347091315338, guid: fceaaa32af70ff64da9de6a1a55e427a,
+        type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8023667010567992581, guid: fceaaa32af70ff64da9de6a1a55e427a,
         type: 3}
       propertyPath: m_Name
@@ -24707,6 +24650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.r
       value: 0.9960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222385303780783245, guid: fceaaa32af70ff64da9de6a1a55e427a,
+        type: 3}
+      propertyPath: disableEyeAnchorCameras
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

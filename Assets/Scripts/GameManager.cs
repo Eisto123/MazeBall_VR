@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(OVRInput.GetDown(OVRInput.Button.Start)){
-            ResetGame();
+            ResetGame();// Change to reset current level
         }
     }
 

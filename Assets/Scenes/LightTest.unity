@@ -3784,7 +3784,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d059a3fea67011c4f9cb0eeea4d749ab, type: 2}
+  - {fileID: 2100000, guid: 841af6bf36e65624a9babb609898b7c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11425,7 +11425,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d059a3fea67011c4f9cb0eeea4d749ab, type: 2}
+  - {fileID: 2100000, guid: 841af6bf36e65624a9babb609898b7c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13937,7 +13937,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d059a3fea67011c4f9cb0eeea4d749ab, type: 2}
+  - {fileID: 2100000, guid: 841af6bf36e65624a9babb609898b7c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25461,7 +25461,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d059a3fea67011c4f9cb0eeea4d749ab, type: 2}
+      objectReference: {fileID: 2100000, guid: 841af6bf36e65624a9babb609898b7c0, type: 2}
     - target: {fileID: -3873826367861066856, guid: c523902a0f0793e41aaa90e7c8f0ec18,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -30055,6 +30055,16 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0.9960785
       objectReference: {fileID: 0}
+    - target: {fileID: 9222385303780783245, guid: fceaaa32af70ff64da9de6a1a55e427a,
+        type: 3}
+      propertyPath: usePerEyeCameras
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222385303780783245, guid: fceaaa32af70ff64da9de6a1a55e427a,
+        type: 3}
+      propertyPath: useFixedUpdateForTracking
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30711,7 +30721,7 @@ PrefabInstance:
     - target: {fileID: 6601232271505267635, guid: 7acdc40e073e1394b84f3fea2f97201d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6641825736495498901, guid: 7acdc40e073e1394b84f3fea2f97201d,
         type: 3}
