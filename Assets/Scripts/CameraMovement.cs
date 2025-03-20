@@ -8,11 +8,8 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private Transform mazeBall;
     [SerializeField] private Transform bigBall;
-    [SerializeField] private float lerpSpeed = 5f; // Speed for switching targets
-    [SerializeField] private float followSpeed = 3f; // Speed for following the target
     [SerializeField] private Vector3 offset;// Offset from the target
     [SerializeField] private GameObject MazeCameraRig; 
-    [SerializeField] private GameObject RoomCube;
     private Transform currentTarget;
 
     private bool isTransitioning = false;
