@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Rendering;
 using Unity.VisualScripting;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public enum level{
     Level1,
@@ -28,9 +30,13 @@ public class GameManager : MonoBehaviour
     public HandGrabInteractor leftInteractor;
     public HandGrabInteractor rightInteractor;
     public GameObject interactionControl;
-
+    public Camera mainCamera;
+    private Color backgroundColor;
     public Volume globalVolume;
 
+    public PlayableDirector director;
+
+    public List<TimelineAsset> timeline;
     public GameManager Instance{
         get{
             if(instance == null){
@@ -49,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         RoomCubePrefab.SetActive(false);
         TinyBall = GameObject.FindGameObjectWithTag("TinyBall");
+        backgroundColor = mainCamera.backgroundColor;
     }
 
     // Update is called once per frame
@@ -110,6 +117,7 @@ public class GameManager : MonoBehaviour
         interactionControl.SetActive(true);
         TinyBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
+        
         
     }
 
@@ -207,6 +215,12 @@ public class GameManager : MonoBehaviour
 
     public void SetBigBallTransitionPosition(int index){
         BigBall.transform.position = BigBallTransitionPos[index].transform.position;
+    }
+
+    public void OnTimelinePlay(int index){
+        mainCamera.backgroundColor = Color.black;
+        CameraManager.Instance.ResetCameraPosition();
+        director.Play(timeline[index]);
     }
 
 

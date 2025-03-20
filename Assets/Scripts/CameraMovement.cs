@@ -59,6 +59,11 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    public void ResetCameraPosition()
+    {
+        MazeCameraRig.transform.position = Vector3.zero;
+    }
+
     public void SetOffset(Vector3 newOffset)
     {
         offset = newOffset;
