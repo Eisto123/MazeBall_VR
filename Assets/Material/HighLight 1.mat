@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HighLight
+  m_Name: HighLight 1
   m_Shader: {fileID: -6465566751694194690, guid: 3b84e476dd60eaf44ba57a6639e5c379,
     type: 3}
   m_Parent: {fileID: 2100000, guid: c7cd43b22a272b441a3a544571ff067b, type: 2}
@@ -23,13 +23,17 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: ee37e462b11231e489f3bf1104a9072c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresenelPower: 2.7
+    - _FresenelPower: 1.6
     - _QueueOffset: 17
     m_Colors:
-    - _FresenelColor: {r: 3.8172736, g: 3.9533498, b: 1.7529002, a: 0}
+    - _FresenelColor: {r: 5.2780313, g: 2.8015685, b: 1.3264161, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2478962455814508244
 MonoBehaviour:

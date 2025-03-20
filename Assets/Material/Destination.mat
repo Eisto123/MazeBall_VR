@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2547125373658856470
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MazeballLight
-  m_Shader: {fileID: -6465566751694194690, guid: 3b84e476dd60eaf44ba57a6639e5c379,
+  m_Name: Destination
+  m_Shader: {fileID: -6465566751694194690, guid: 6f021a7881e5d504e8485ffd23441a7c,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -30,7 +17,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2987
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -57,12 +44,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DiffuseTex:
+        m_Texture: {fileID: 2800000, guid: 9c15efd41815ee34497bb3fa080a509c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fc851a8e2d79fef4dbd08fbbe606da4e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4b982ff5da58aec46a2ff1b83b99f948, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -109,7 +100,6 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FresenelPower: 4.2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -117,11 +107,12 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
-    - _QueueOffset: -13
+    - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
@@ -129,8 +120,20 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1.8889873, g: 2, b: 0.781132, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresenelColor: {r: 0.7209716, g: 1.1545229, b: 2.1185472, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &2985034284063596501
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
