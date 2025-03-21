@@ -26,7 +26,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _FresenelPower: 2.7
+    - _FresenelPower: 2.04
     - _QueueOffset: 17
     m_Colors:
     - _FresenelColor: {r: 3.8172736, g: 3.9533498, b: 1.7529002, a: 0}
