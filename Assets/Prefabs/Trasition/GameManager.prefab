@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4316663778046460995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3484546053459674113}
+  - component: {fileID: 8241707560427080719}
+  - component: {fileID: 8475262015204354904}
+  - component: {fileID: 6009606040578281101}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3484546053459674113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316663778046460995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8241707560427080719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316663778046460995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887edd62b200fae448beca80380db19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BigBall: {fileID: 0}
+  mazeBall: {fileID: 0}
+  RoomCubePrefab: {fileID: 0}
+  leftInteractor: {fileID: 0}
+  rightInteractor: {fileID: 0}
+  interactionControl: {fileID: 0}
+  mainCamera: {fileID: 0}
+  globalVolume: {fileID: 0}
+  director: {fileID: 0}
+  timeline:
+  - {fileID: 11400000, guid: 3009e6e269b1fa24ab1f66bea796f8fb, type: 2}
+  BigBallStartPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  BigBallTransitionPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TinyBallStartPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  MazeBallRotationForTinyBall:
+  - {x: 90, y: -80, z: 145}
+  - {x: 370, y: -200, z: -6}
+  - {x: 380, y: -59, z: -72}
+--- !u!114 &8475262015204354904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316663778046460995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae8cfda365c5834aa086907b16441b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mazeBall: {fileID: 0}
+  bigBall: {fileID: 0}
+  offset: {x: 0, y: -1, z: -0.5}
+  MazeCameraRig: {fileID: 0}
+--- !u!114 &6009606040578281101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316663778046460995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 8353d0e384f55b748bcc852f093c6904, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8241707560427080719}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: SwitchToTinyBall
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: RoomRotation, Assembly-CSharp
+          m_MethodName: OnEnding
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: RoomRotation, Assembly-CSharp
+          m_MethodName: RotateRoomYMinus
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

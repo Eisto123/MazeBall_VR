@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public Camera mainCamera;
     private Color backgroundColor;
     public Volume globalVolume;
+    public GameObject fadeMask;
 
     public PlayableDirector director;
 
@@ -84,7 +85,10 @@ public class GameManager : MonoBehaviour
         BigBall.SetActive(true);
         SetBigBallPositionBaseOnCurrentLevel();
 
-        yield return new WaitForSeconds(1);
+        StartCoroutine(LerpGlobalVolume(1, -0.8f, 0.5f));
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(LerpGlobalVolume(0.3f, 0, 0.5f));
+        yield return new WaitForSeconds(0.5f);
         TinyBall.SetActive(false);
         BigBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
@@ -95,12 +99,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void SwitchToTinyBall(){
-        StartCoroutine(SwitchToTinyBallProcess());
+        StartCoroutine(SwitchToTinyBallProcess(1));
     }
 
 
-    private IEnumerator SwitchToTinyBallProcess(){
+    private IEnumerator SwitchToTinyBallProcess(int duration){
         currentLevel++;
+        
         BigBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
         BigBall.GetComponent<Rigidbody>().isKinematic = true;
         leftInteractor.ForceRelease();
@@ -110,14 +115,25 @@ public class GameManager : MonoBehaviour
         TinyBall.SetActive(true);
         SetTinyBallPositionBaseOnCurrentLevel();
 
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
         
         BigBall.SetActive(false);
         RoomCubePrefab.SetActive(false);
         interactionControl.SetActive(true);
         TinyBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
-        
+
+        float elapsedTime = 0;
+        fadeMask.SetActive(true);
+        while(elapsedTime < duration){
+            fadeMask.GetComponent<MeshRenderer>().material.color = new Color(0,0,0,Mathf.Lerp(1,0,elapsedTime/duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        fadeMask.SetActive(false);
+        mainCamera.backgroundColor = backgroundColor;
+
+        yield return null;
         
     }
 
@@ -218,10 +234,23 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnTimelinePlay(int index){
+        StartCoroutine(FadeOutTimeline(index,1f));
+    }
+
+    private IEnumerator FadeOutTimeline(int index, float duration){
+        float elapsedTime = 0;
+        fadeMask.SetActive(true);
+        while(elapsedTime < duration){
+            fadeMask.GetComponent<MeshRenderer>().material.color = new Color(0,0,0,Mathf.Lerp(0,1,elapsedTime/duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        fadeMask.SetActive(false);
         mainCamera.backgroundColor = Color.black;
         CameraManager.Instance.ResetCameraPosition();
         director.Play(timeline[index]);
     }
+
 
 
 }
