@@ -21,12 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GUI_Effect
-  m_Shader: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: -6465566751694194690, guid: 8a3f6192cbf099f47bf3b331c8ba5e5a,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_ValidKeywords:
   - _ENUM_C
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -116,7 +117,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Noise: 89.5
+    - _Noise: 88.73
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -142,6 +143,6 @@ Material:
     - _Color_2: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _UV1: {r: 1, g: 0.9546284, b: 0.26226407, a: 0}
-    - _UV2: {r: 0.19433957, g: 0.68082523, b: 1, a: 0}
+    - _UV1: {r: 1, g: 0.26274514, b: 0.29126996, a: 0}
+    - _UV2: {r: 0.19607842, g: 1, b: 0.20683973, a: 0}
   m_BuildTextureStacks: []
