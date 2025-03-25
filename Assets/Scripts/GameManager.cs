@@ -57,19 +57,25 @@ public class GameManager : MonoBehaviour
         RoomCubePrefab.SetActive(false);
         TinyBall = GameObject.FindGameObjectWithTag("TinyBall");
         backgroundColor = mainCamera.backgroundColor;
+        StartCoroutine(FadeOutTimeline(0,0));
     }
 
     // Update is called once per frame
     void Update()
     {
         if(OVRInput.GetDown(OVRInput.Button.Start)){
-            ResetGame();// Change to reset current level
+            SetTinyBallPositionBaseOnCurrentLevel();
+            //ResetGame();// Change to reset current level
         }
     }
 
     private void ResetGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToMenu(){
+        SceneManager.LoadScene("UIScreen");
     }
 
     public void SwitchToBigBall(){
@@ -105,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SwitchToTinyBallProcess(int duration){
         currentLevel++;
-        
+        StartCoroutine(FadeInTimelineEnd(1f));
         BigBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
         BigBall.GetComponent<Rigidbody>().isKinematic = true;
         leftInteractor.ForceRelease();
@@ -115,22 +121,16 @@ public class GameManager : MonoBehaviour
         TinyBall.SetActive(true);
         SetTinyBallPositionBaseOnCurrentLevel();
 
-        //yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1);
         
+        fadeMask.SetActive(false);
         BigBall.SetActive(false);
         RoomCubePrefab.SetActive(false);
         interactionControl.SetActive(true);
         TinyBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
 
-        float elapsedTime = 0;
-        fadeMask.SetActive(true);
-        while(elapsedTime < duration){
-            fadeMask.GetComponent<MeshRenderer>().material.color = new Color(0,0,0,Mathf.Lerp(1,0,elapsedTime/duration));
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        fadeMask.SetActive(false);
+        
         mainCamera.backgroundColor = backgroundColor;
 
         yield return null;
@@ -249,6 +249,23 @@ public class GameManager : MonoBehaviour
         mainCamera.backgroundColor = Color.black;
         CameraManager.Instance.ResetCameraPosition();
         director.Play(timeline[index]);
+    }
+
+    public void OnTimelineEnd(){
+        StartCoroutine(FadeInTimelineEnd(1f));
+    }
+
+    private IEnumerator FadeInTimelineEnd(float duration){
+        float elapsedTime = 0;
+        fadeMask.SetActive(true);
+        while(elapsedTime < duration){
+            fadeMask.GetComponent<MeshRenderer>().material.color = new Color(0,0,0,Mathf.Lerp(1,0,elapsedTime/duration));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        fadeMask.SetActive(false);
+        mainCamera.backgroundColor = backgroundColor;
+        
     }
 
 

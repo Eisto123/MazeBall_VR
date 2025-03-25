@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/UIScreen.unity
     guid: 03e3a6fbcec3d2148acd383245a39c4a
   - enabled: 1
-    path: Assets/Scenes/CameraTest.unity
-    guid: fcb748496935c5a47be24b85392db253
+    path: Assets/Scenes/EistoFeature.unity
+    guid: aa4331f4f390f9243a9f96602b8a1c6a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 60d2a9b41758d12479a62d43e5793562,
       type: 2}

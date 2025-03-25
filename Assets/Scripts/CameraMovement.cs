@@ -12,7 +12,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private GameObject MazeCameraRig; 
     private Transform currentTarget;
 
-    private bool isTransitioning = false;
 
     private void Awake()
     {
@@ -31,7 +30,7 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         currentTarget = mazeBall; // Start at the first target
-        MazeCameraRig.transform.position = currentTarget.position + offset;
+        //MazeCameraRig.transform.position = currentTarget.position + offset;
     }
 
     void Update()
@@ -57,6 +56,11 @@ public class CameraManager : MonoBehaviour
             currentTarget = mazeBall;
             MazeCameraRig.transform.position = currentTarget.position + offset;
         }
+    }
+
+    public void AimMazeBall()
+    {
+        MazeCameraRig.transform.position = currentTarget.position + offset;
     }
 
     public void ResetCameraPosition()
