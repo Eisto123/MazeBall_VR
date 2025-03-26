@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class SequentialAppear : MonoBehaviour
 {
-    public GameObject[] objectsToAppear; // ��Ҫ������ʾ����������
-    public float delayBetweenAppearance = 0.5f; // ÿ��������ֵ�ʱ����
-    public float dissolveDuration = 1f; // �ܽ����ʱ��
-    public float timeBeforeDissolve = 2f; // ������ȫ���ֺ�ͣ����ʱ��
+    public GameObject[] objectsToAppear;
+    public float delayBetweenAppearance = 0.5f; 
+    public float dissolveDuration = 1f; 
+    public float timeBeforeDissolve = 2f; 
 
     private string dissolveProperty = "_Distance";
 

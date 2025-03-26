@@ -676,10 +676,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1284.835205078125,
-            "y": -135.05368041992188,
-            "width": 0.0,
-            "height": 0.0
+            "x": -1285.9998779296875,
+            "y": -135.5,
+            "width": 132.4998779296875,
+            "height": 33.99999237060547
         }
     },
     "m_Slots": [
@@ -1654,7 +1654,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": -5.5,
+    "m_Value": 0.0,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,

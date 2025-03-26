@@ -19,6 +19,7 @@ TagManager:
   - MazeBall
   - TinyBall
   - String
+  - Platform
   layers:
   - Default
   - TransparentFX

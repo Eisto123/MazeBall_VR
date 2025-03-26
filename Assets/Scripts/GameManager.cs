@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     private Color backgroundColor;
     public Volume globalVolume;
     public GameObject fadeMask;
+    public GameObject RestartUI;
+    public GameObject Arrows;
 
     public PlayableDirector director;
 
@@ -65,7 +67,18 @@ public class GameManager : MonoBehaviour
     {
         if(OVRInput.GetDown(OVRInput.Button.Start)){
             SetTinyBallPositionBaseOnCurrentLevel();
+            if(RestartUI.activeSelf){
+                RestartUI.SetActive(false);
+            }
             //ResetGame();// Change to reset current level
+        }
+        if(OVRInput.GetDown(OVRInput.Button.Four)){
+            if(Arrows.activeSelf){
+                Arrows.SetActive(false);
+            }
+            else{
+                Arrows.SetActive(true);
+            }
         }
     }
 
@@ -83,7 +96,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SwitchToBigBallProcess());
     }
     private IEnumerator SwitchToBigBallProcess(){
-
+        AudioManager.Instance.FadeOutBGM();
         TinyBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
         TinyBall.GetComponent<Rigidbody>().isKinematic = true;
         leftInteractor.ForceRelease();
@@ -93,16 +106,20 @@ public class GameManager : MonoBehaviour
         BigBall.SetActive(true);
         SetBigBallPositionBaseOnCurrentLevel();
 
+        AudioManager.Instance.PlayEnviroment(0);
         StartCoroutine(LerpGlobalVolume(1, -0.8f, 0.5f));
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(LerpGlobalVolume(0.3f, 0, 0.5f));
         yield return new WaitForSeconds(0.5f);
+        
         TinyBall.SetActive(false);
         BigBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
         interactionControl.SetActive(true);
         RoomCubePrefab.SetActive(true);
         RoomCubePrefab.transform.position = new Vector3(0,4.5f,0);
+        AudioManager.Instance.playBGM(((int)currentLevel)*2+1);
+        BigBall.GetComponent<BigBall>().shineTwice();
         
     }
 
@@ -114,6 +131,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SwitchToTinyBallProcess(){
         currentLevel++;
+        if(currentLevel == level.Level2){
+            RestartUI.SetActive(true);
+        }
+        AudioManager.Instance.FadeOutBGM();
         BigBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
         BigBall.GetComponent<Rigidbody>().isKinematic = true;
         leftInteractor.ForceRelease();
@@ -123,6 +144,7 @@ public class GameManager : MonoBehaviour
         TinyBall.SetActive(true);
         SetTinyBallPositionBaseOnCurrentLevel();
 
+        AudioManager.Instance.PlayEnviroment(0);
         StartCoroutine(LerpGlobalVolume(1, -0.8f, 0.5f));
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(LerpGlobalVolume(0.3f, 0, 0.5f));
@@ -134,6 +156,7 @@ public class GameManager : MonoBehaviour
         interactionControl.SetActive(true);
         TinyBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
+        AudioManager.Instance.playBGM(((int)currentLevel)*2);
 
         yield return null;
         
@@ -184,6 +207,8 @@ public class GameManager : MonoBehaviour
         leftInteractor.ForceRelease();
         rightInteractor.ForceRelease();
         interactionControl.SetActive(false);
+        
+        AudioManager.Instance.PlayEnviroment(0);
         StartCoroutine(LerpGlobalVolume(1, -0.8f, 0.5f));
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(LerpGlobalVolume(0.3f, 0, 0.5f));
@@ -258,6 +283,7 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator FadeInTimelineEnd(float duration){
+        mainCamera.backgroundColor = backgroundColor;
         float elapsedTime = 0;
         fadeMask.SetActive(true);
         while(elapsedTime < duration){
@@ -266,7 +292,6 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         fadeMask.SetActive(false);
-        mainCamera.backgroundColor = backgroundColor;
         
     }
 

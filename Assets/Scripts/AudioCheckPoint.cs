@@ -16,7 +16,7 @@ public class AudioCheckPoint : MonoBehaviour
     public AudioClip audioClip;
     public AudioMixerGroup audioType;
     private AudioSource audioSource;
-    private bool isPlayed = false;
+    private BoxCollider boxCollider;
 
 
     // Start is called before the first frame update
@@ -25,6 +25,7 @@ public class AudioCheckPoint : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioClip;
         audioSource.outputAudioMixerGroup = audioType;
+        boxCollider = GetComponent<BoxCollider>();
 
     }
 
@@ -33,23 +34,13 @@ public class AudioCheckPoint : MonoBehaviour
         if(other.gameObject.tag == "Ball"|| other.gameObject.tag == "TinyBall")
         {
             audioSource.Play();
-            isPlayed = true;
-        }
-    }
-
-    void Update()
-    {
-        if(isPlayed)
-        {
-            if(!audioSource.isPlaying){
-                this.gameObject.SetActive(false);
-            }
+            boxCollider.enabled = false;
         }
     }
 
     public void PlayAudio()
     {
         audioSource.Play();
-        isPlayed = true;
+        boxCollider.enabled = false;
     }
 }

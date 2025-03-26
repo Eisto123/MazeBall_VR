@@ -88,7 +88,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public void FadeOutBGM(){
-        StartCoroutine(FadeOut(BGM,2f));
+        StartCoroutine(FadeOut(BGM,1f));
     }
 
     public void FadeOutSFX(){
