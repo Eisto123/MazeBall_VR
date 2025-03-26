@@ -79,9 +79,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void SwitchToBigBall(){
+        StartCoroutine(FadeInTimelineEnd(1f));
         StartCoroutine(SwitchToBigBallProcess());
     }
     private IEnumerator SwitchToBigBallProcess(){
+
         TinyBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
         TinyBall.GetComponent<Rigidbody>().isKinematic = true;
         leftInteractor.ForceRelease();
@@ -105,13 +107,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void SwitchToTinyBall(){
-        StartCoroutine(SwitchToTinyBallProcess(1));
+        StartCoroutine(FadeInTimelineEnd(1f));
+        StartCoroutine(SwitchToTinyBallProcess());
     }
 
 
-    private IEnumerator SwitchToTinyBallProcess(int duration){
+    private IEnumerator SwitchToTinyBallProcess(){
         currentLevel++;
-        StartCoroutine(FadeInTimelineEnd(1f));
         BigBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
         BigBall.GetComponent<Rigidbody>().isKinematic = true;
         leftInteractor.ForceRelease();
@@ -121,7 +123,10 @@ public class GameManager : MonoBehaviour
         TinyBall.SetActive(true);
         SetTinyBallPositionBaseOnCurrentLevel();
 
-        yield return new WaitForSeconds(1);
+        StartCoroutine(LerpGlobalVolume(1, -0.8f, 0.5f));
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(LerpGlobalVolume(0.3f, 0, 0.5f));
+        yield return new WaitForSeconds(0.5f);
         
         fadeMask.SetActive(false);
         BigBall.SetActive(false);
@@ -129,9 +134,6 @@ public class GameManager : MonoBehaviour
         interactionControl.SetActive(true);
         TinyBall.GetComponent<Rigidbody>().isKinematic = false;
         CameraManager.Instance.SwitchTarget();
-
-        
-        mainCamera.backgroundColor = backgroundColor;
 
         yield return null;
         
